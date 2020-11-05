@@ -1,8 +1,72 @@
 .home {
+
   text-align: center;
   
+  h1 {
+    color:rgba(0, 0, 0, 0.7);
+    font-size: 2rem;
+    margin-top: 0;
+    padding-top: 3rem;
+  }
+
+  h3 {
+    color: darkslategray;
+  }
+
+  button {
+    margin: 5px;
+    color: floralwhite;
+    background: steelblue;
+    padding: .4rem .6rem .4rem .6rem;
+    border-radius: .2rem;
+    font-size: 1rem;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+  .search-box {
+    margin-top: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    padding-bottom: 1rem;
+    padding-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
+    width: 300px;
+    color: antiquewhite;
+
+    .form-row {
+      margin-bottom: 10px;
+
+      label {
+        margin-right: 10px;
+      }
+
+      input {
+        height: 1.2rem;
+      }
+    }
+
+    button {
+      color: antiquewhite;
+      background: inherit;
+      padding: .4rem .6rem .4rem .6rem;
+      border-radius: .2rem;
+      font-size: 1rem;
+
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
 
   .result-box {
+    height: 90vh;
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
 
     .column-var {
       float: left;
@@ -13,11 +77,37 @@
       }
     }
   
+    .row {
+      background: rgba(225, 255, 255, 0.3);
+      margin-bottom: .5rem;
+      margin-right: 1rem;
+      margin-left: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 1px rgba(225, 255, 255, 0.4) solid;
+
+      &:hover {
+        background: rgba(225, 255, 255, 0.7);
+      }
+    }
+  
     .column {
       float: left;
       width: 25%;
+      p {
+        font-size: .8rem;
+      }
     }
 
+    .navigate-result {
+
+      button {
+        background:  rgba(0, 0, 0, 0.5);
+        padding: .4rem .6rem .4rem .6rem;
+        border-radius: .2rem;
+        font-size: 1rem;
+      }
+    }
   }
   
   .row:after, .row-var:after {
