@@ -1,0 +1,30 @@
+.home {
+  text-align: center;
+  
+
+  .result-box {
+
+    .column-var {
+      float: left;
+      width: 25%;
+      p {
+        font-size: 1.3rem;
+        text-decoration: underline;
+      }
+    }
+  
+    .column {
+      float: left;
+      width: 25%;
+    }
+
+  }
+  
+  .row:after, .row-var:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
