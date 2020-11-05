@@ -26,6 +26,7 @@ class Home extends React.Component {
     this.enterClicked = this.enterClicked.bind(this);
     this.search = this.search.bind(this);
     this.showResult = this.showResult.bind(this);
+    this.getProvider = this.getProvider.bind(this);
     this.checkNextTen = this.checkNextTen.bind(this);
     this.searchNextTen = this.searchNextTen.bind(this);
   }
@@ -36,12 +37,14 @@ class Home extends React.Component {
       firstName: event.target.value
     })
   }
+
   lastNameChange(event) {
     event.preventDefault();
     this.setState({
       lastName: event.target.value
     })
   }
+
   organizationChange(event) {
     event.preventDefault();
     this.setState({
@@ -54,7 +57,7 @@ class Home extends React.Component {
   }
 
   getApi(firstName, lastName, organization, skipFirst) {
-    return (`${API}/?first_name=${firstName}&last_name=${lastName}&organization_name=${organization}&limit=10&skip=${skipFirst}&version=2.1`)
+    return (`${API}/?number=&enumeration_type=&taxonomy_description=&first_name=${firstName}&use_first_name_alias=&last_name=${lastName}&organization_name=${organization}&address_purpose=&city=&state=&postal_code=&country_code=&limit=10&skip=${skipFirst}&version=2.1`)
   }
 
   search() {
@@ -101,6 +104,7 @@ class Home extends React.Component {
     })
 
   }
+  
   searchPreviousTen() {
     let newSkip = this.state.skipFirst - 10
     this.setState({skipFirst: newSkip }, () => {
@@ -111,6 +115,7 @@ class Home extends React.Component {
 
   showResult() {
     let providers = this.state.results;
+    let searchType = this.state.searchBox;
     let rendering = []
 
     if (providers.Errors || providers.result_count === 0) {
@@ -139,7 +144,7 @@ class Home extends React.Component {
         for (let provider of providers.results) {
 
           rendering.push(
-            <div className="row">
+            <div className="row" onClick={() => this.getProvider(provider.number)}>
               <div className="column">
                 <p>{provider.number}</p>
               </div>
@@ -168,6 +173,10 @@ class Home extends React.Component {
     return rendering;
   }
 
+  getProvider(providerId) {
+    window.open(`/provider/${providerId}`, "_blank")
+  }
+
   render() {
 
     return (
@@ -186,6 +195,7 @@ class Home extends React.Component {
               <label>Last Name:</label>
               <input type="text" onChange={this.lastNameChange} value={this.state.lastName}/>
             </div>
+
           </div>
           <div className="search-box-organization" style={this.state.searchBox === 'organization'? {}:{display:'none'}}>
             <div className="form-row">
