@@ -104,7 +104,7 @@ class Home extends React.Component {
     })
 
   }
-  
+
   searchPreviousTen() {
     let newSkip = this.state.skipFirst - 10
     this.setState({skipFirst: newSkip }, () => {
@@ -115,7 +115,6 @@ class Home extends React.Component {
 
   showResult() {
     let providers = this.state.results;
-    let searchType = this.state.searchBox;
     let rendering = []
 
     if (providers.Errors || providers.result_count === 0) {
@@ -144,7 +143,7 @@ class Home extends React.Component {
         for (let provider of providers.results) {
 
           rendering.push(
-            <div className="row" onClick={() => this.getProvider(provider.number)}>
+            <div className="row" onClick={() => this.getProvider(provider.number)} key={provider.number}>
               <div className="column">
                 <p>{provider.number}</p>
               </div>
