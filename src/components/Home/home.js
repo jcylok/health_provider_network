@@ -125,7 +125,7 @@ class Home extends React.Component {
       )
     } else if (providers.results) {
         rendering.push(
-          <div className="row-var">
+          <div className="row-var" key={"variable"}>
             <div className="column-var" >
               <p>ID</p>
             </div>
@@ -163,7 +163,7 @@ class Home extends React.Component {
  
     if (providers.results) {
       rendering.push(
-        <div className="navigate-result">
+        <div className="navigate-result" key={"nav-result"}>
           <button onClick={() => this.searchPreviousTen()} disabled={this.state.skipFirst === 0}>Back</button>
           <button onClick={() => this.searchNextTen()} disabled={!this.state.existNextTen}>Next</button>
         </div>
